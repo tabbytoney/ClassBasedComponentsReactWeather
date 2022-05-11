@@ -18,6 +18,12 @@ if (module.hot) {
 // };
 
 class App extends React.Component {
+  constructor(props) {
+    super(props);
+
+    this.state = { lat: null };
+  }
+
   render() {
     window.navigator.geolocation.getCurrentPosition(
       // success callback function
@@ -25,7 +31,7 @@ class App extends React.Component {
       // failure callback function
       (err) => console.log(err)
     );
-    return <div>Lattitude: </div>;
+    return <div>Lattitude: {this.state.lat} </div>;
   }
 }
 
